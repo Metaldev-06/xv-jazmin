@@ -1,0 +1,49 @@
+<section class="gift__container">
+  <article class="gift__content">
+    <lucide-icon
+      [img]="GiftIcon"
+      class="my-icon"
+      [size]="60"
+      [color]="'#dac2fe'"
+      [strokeWidth]="1"
+    />
+    <h2 class="title">Regalo</h2>
+
+    <div class="gift__text">
+      <p>
+        Tu presencia es lo más importante para mí, pero si querés hacerme un presente, podés hacerlo
+        a través de esta cuenta:
+      </p>
+    </div>
+
+    <div class="gift__account">
+      <div class="account__container">
+        <div class="account__info">
+          <lucide-icon [img]="LandmarkIcon" class="my-icon" [strokeWidth]="1" [color]="'#61636d'" />
+          <div class="info__row">
+            <span class="label">CBU / CVU</span>
+            <span class="value">{{ cvu }}</span>
+          </div>
+        </div>
+
+        <button type="button" (click)="copy('cvu')" [class.copied]="copiedKey() === 'cvu'">
+          {{ copiedKey() === 'cvu' ? 'Copiado' : 'Copiar' }}
+        </button>
+      </div>
+
+      <div class="account__container">
+        <div class="account__info">
+          <lucide-icon [img]="AtSignIcon" class="my-icon" [strokeWidth]="1" [color]="'#61636d'" />
+          <div class="info__row">
+            <span class="label">Alias</span>
+            <span class="value">{{ alias }}</span>
+          </div>
+        </div>
+
+        <button type="button" (click)="copy('alias')" [class.copied]="copiedKey() === 'alias'">
+          {{ copiedKey() === 'alias' ? 'Copiado' : 'Copiar' }}
+        </button>
+      </div>
+    </div>
+  </article>
+</section>

@@ -1,0 +1,51 @@
+.countdown {
+  width: 95%;
+  max-width: var(--max-width);
+  /* min-height: 50dvh; */
+  margin: 3rem auto 10rem auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .cell {
+    border-radius: 16px;
+    padding: 1rem 0.45rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(218, 194, 254, 0.22);
+    backdrop-filter: blur(10px);
+  }
+  .value {
+    display: block;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: #dac2fe;
+  }
+  .label {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: clamp(0.65rem, 1.5vw, 0.9rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: bold;
+  }
+  .done {
+    margin-top: 1rem;
+    color: #dac2fe;
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

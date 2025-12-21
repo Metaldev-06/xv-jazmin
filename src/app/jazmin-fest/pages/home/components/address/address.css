@@ -1,0 +1,57 @@
+.address__container {
+  width: 95%;
+  max-width: var(--max-width);
+  min-height: 50dvh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .info__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-family: var(--font-normal);
+
+    h2 {
+      text-align: center;
+    }
+
+    .info__address {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      h3 {
+        color: var(--primary-color);
+      }
+
+      p {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+    }
+
+    button {
+      width: fit-content;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--primary-color);
+      color: var(--background-color);
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #c1a1f8;
+      }
+    }
+  }
+
+  .map__container {
+    width: 100%;
+    height: 500px;
+  }
+}

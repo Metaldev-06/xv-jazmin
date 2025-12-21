@@ -1,0 +1,70 @@
+.hero__container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: 100dvh;
+  position: relative;
+  overflow: hidden;
+
+  .background__image {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/imagen-5.jpeg');
+    background-size: cover;
+    background-position: top;
+    opacity: 0.7;
+    -webkit-mask-image: linear-gradient(#222222 60%, transparent);
+    mask-image: linear-gradient(#222222 60%, transparent);
+  }
+
+  .jazmin__image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: top;
+    opacity: 0.9;
+    top: 0;
+    left: 0;
+    background-image: url('/assets/images/jazmin-5.png');
+    -webkit-mask-image: linear-gradient(#222222 60%, transparent);
+    mask-image: linear-gradient(#222222 60%, transparent);
+  }
+
+  .hero__content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* top: 4.5rem; */
+    top: 0;
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+
+    h1 {
+      font-family: 'GreatVibes', cursive;
+      font-weight: normal;
+      font-size: clamp(5rem, 8vw, 7rem);
+      color: var(--primary-color);
+    }
+
+    h2 {
+      font-family: 'CinzelDecorative', serif;
+      font-weight: 600;
+      font-size: clamp(2rem, 5vw, 3rem);
+      /* color: var(--primary-color); */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      span {
+        font-size: clamp(1.3rem, 3vw, 1.5rem);
+        font-weight: 400;
+      }
+    }
+  }
+}

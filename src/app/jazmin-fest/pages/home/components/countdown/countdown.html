@@ -1,0 +1,29 @@
+<section class="countdown" aria-label="Cuenta atrás para el evento">
+  <!-- <h3 class="title">Faltan</h3> -->
+
+  <div class="grid" role="list">
+    <div class="cell" role="listitem">
+      <span class="value">{{ countdown().days }}</span>
+      <span class="label">Días</span>
+    </div>
+
+    <div class="cell" role="listitem">
+      <span class="value">{{ countdown().hours }}</span>
+      <span class="label">Horas</span>
+    </div>
+
+    <div class="cell" role="listitem">
+      <span class="value">{{ countdown().minutes }}</span>
+      <span class="label">Minutos</span>
+    </div>
+
+    <div class="cell" role="listitem">
+      <span class="value">{{ countdown().seconds }}</span>
+      <span class="label">Segundos</span>
+    </div>
+  </div>
+
+  @if (countdown().isFinished) {
+  <p class="done">¡Hoy es el gran día! ✨</p>
+  }
+</section>
