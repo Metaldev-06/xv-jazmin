@@ -2,10 +2,10 @@ import { Component, ElementRef, NgZone, ViewChild } from '@angular/core';
 
 import { Address } from './components/address/address';
 import { Countdown } from './components/countdown/countdown';
-import { Hero } from './components/hero/hero';
-import { StarEffect } from '../../../shared/components/star-effect/star-effect';
 import { GiftComponent } from './components/gift/gift';
+import { Hero } from './components/hero/hero';
 import { Invitation } from './components/invitation/invitation';
+import { StarEffect } from '../../../shared/components/star-effect/star-effect';
 
 @Component({
   selector: 'app-home',

@@ -15,8 +15,8 @@ export class GiftComponent {
   readonly LandmarkIcon = Landmark;
   readonly AtSignIcon = AtSign;
 
-  readonly cvu = '0000003100050577417929';
-  readonly alias = 'fernydiaz62.mp';
+  readonly cvu = '0000003100078632277165';
+  readonly alias = 'Jaz.dma.mp';
 
   readonly copiedKey = signal<CopyKey | null>(null);
 
