@@ -19,6 +19,6 @@
   .variant {
     grid-column: span 2 / span 2;
     grid-row-start: 2;
-    height: 450px;
+    /* height: 450px; */
   }
 }
