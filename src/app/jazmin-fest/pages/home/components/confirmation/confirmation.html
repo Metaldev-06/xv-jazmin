@@ -68,7 +68,11 @@
         }
       </div>
 
-      <button type="submit">Enviar Confirmación</button>
+      <button type="submit">
+        @if (wasItSent()) { Enviando
+        <i class="pi pi-spin pi-spinner" style="font-size: 1rem"></i>
+        } @else { Confirmar asistencia }
+      </button>
     </form>
   </div>
 </section>

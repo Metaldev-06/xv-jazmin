@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   Field,
   form,
@@ -9,9 +9,14 @@ import {
   required,
   submit,
 } from '@angular/forms/signals';
+
 import { LucideAngularModule, ShieldX } from 'lucide-angular';
 
-interface ConfirmationData {
+import { ConfirmationData } from '../../../../../core/services/confirmation-data';
+import { ConfirmationDataBody } from '../../../../../core/interfaces/confirmation-data';
+import { take } from 'rxjs';
+
+interface ConfirmationDataForm {
   name: string;
   dni: number;
   message: string;
@@ -27,7 +32,11 @@ interface ConfirmationData {
 export class Confirmation {
   readonly ShieldXIcon = ShieldX;
 
-  confirmationModel = signal<ConfirmationData>({
+  private readonly confirmationData = inject(ConfirmationData);
+
+  public wasItSent = signal(false);
+
+  confirmationModel = signal<ConfirmationDataForm>({
     name: '',
     dni: 0,
     message: '',
@@ -35,7 +44,7 @@ export class Confirmation {
   });
 
   confirmationForm = form(this.confirmationModel, (path) => {
-    required(path.name, { message: 'El nombre es obligatorio' });
+    required(path.name, { message: 'El nombre y apellido es obligatorio' });
     maxLength(path.name, 50, { message: 'El nombre y apellido no puede exceder 50 caracteres' });
     minLength(path.name, 3, { message: 'El nombre y apellido debe tener al menos 3 caracteres' });
 
@@ -48,7 +57,7 @@ export class Confirmation {
     required(path.confirmed, { message: 'Debes confirmar tu asistencia' });
   });
 
-  isFieldInvalid(fieldName: keyof ConfirmationData): boolean {
+  isFieldInvalid(fieldName: keyof ConfirmationDataForm): boolean {
     const fieldSignal = this.confirmationForm[fieldName];
     if (!fieldSignal) return false;
 
@@ -61,7 +70,8 @@ export class Confirmation {
 
     submit(this.confirmationForm, async (isValid) => {
       if (isValid()) {
-        console.log(this.confirmationForm().value());
+        const data = this.confirmationForm().value();
+        this.sendConfirmation(data);
       }
     });
   }
@@ -74,5 +84,23 @@ export class Confirmation {
       confirmed: false,
     });
     this.confirmationForm().reset();
+  }
+
+  sendConfirmation(data: ConfirmationDataBody) {
+    this.wasItSent.set(true);
+    this.confirmationData
+      .sendConfirmation(data)
+      .pipe(take(1))
+      .subscribe({
+        next: (response) => {
+          console.log('Confirmation sent successfully:', response);
+          this.onReset();
+          this.wasItSent.set(false);
+        },
+        error: (error) => {
+          console.error('Error sending confirmation:', error);
+          this.wasItSent.set(false);
+        },
+      });
   }
 }
