@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { JazminFest } from './jazmin-fest';
+import JazminFest from './jazmin-fest';
 
 export const jazminFestRoutes: Routes = [
   {

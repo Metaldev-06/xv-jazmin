@@ -14,7 +14,16 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes, withViewTransitions(), withComponentInputBinding()),
+    provideRouter(
+      routes,
+      withViewTransitions({
+        // opcional: hook para debug/log
+        onViewTransitionCreated: (vt) => {
+          // vt.finished.then(() => console.log('VT finished'));
+        },
+      }),
+      withComponentInputBinding()
+    ),
     providePrimeNG({
       theme: {
         preset: Aura,

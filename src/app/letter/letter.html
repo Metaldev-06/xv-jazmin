@@ -1,0 +1,22 @@
+<!-- letter.html -->
+<section class="cover">
+  <h1 class="title">Jazmin</h1>
+  <h2>Mis XV Años</h2>
+
+  <button class="envelope" type="button" (click)="open()">
+    <!-- back -->
+    <div class="env-back" style="view-transition-name: envelope"></div>
+
+    <!-- paper -->
+    <div class="letter" [class.letter--out]="opened()"></div>
+
+    <!-- front pocket (define la boca y tapa el papel) -->
+    <div class="env-front"></div>
+
+    <!-- flap -->
+    <div class="env-flap"></div>
+
+    <span class="hint">Tocar para abrir la invitación</span>
+  </button>
+</section>
+<app-star-effect />

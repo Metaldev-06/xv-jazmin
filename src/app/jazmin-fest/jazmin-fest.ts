@@ -9,4 +9,4 @@ import { Footer } from './layout/footer/footer';
   templateUrl: './jazmin-fest.html',
   styleUrl: './jazmin-fest.css',
 })
-export class JazminFest {}
+export default class JazminFest {}
