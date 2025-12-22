@@ -1,0 +1,19 @@
+footer {
+  width: 100%;
+  padding: 2rem 0;
+  text-align: center;
+  color: #fdfdfd;
+  font-family: var(--font-normal);
+  opacity: 0.7;
+  font-size: 0.8rem;
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
