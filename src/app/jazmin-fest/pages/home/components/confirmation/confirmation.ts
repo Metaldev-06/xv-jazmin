@@ -10,11 +10,15 @@ import {
   submit,
 } from '@angular/forms/signals';
 
+import { take } from 'rxjs';
+
 import { LucideAngularModule, ShieldX } from 'lucide-angular';
+
+import { MessageService } from 'primeng/api';
+import { Toast } from 'primeng/toast';
 
 import { ConfirmationData } from '../../../../../core/services/confirmation-data';
 import { ConfirmationDataBody } from '../../../../../core/interfaces/confirmation-data';
-import { take } from 'rxjs';
 
 interface ConfirmationDataForm {
   name: string;
@@ -25,14 +29,16 @@ interface ConfirmationDataForm {
 
 @Component({
   selector: 'app-confirmation',
-  imports: [Field, LucideAngularModule],
+  imports: [Field, LucideAngularModule, Toast],
   templateUrl: './confirmation.html',
   styleUrl: './confirmation.css',
+  providers: [MessageService],
 })
 export class Confirmation {
   readonly ShieldXIcon = ShieldX;
 
   private readonly confirmationData = inject(ConfirmationData);
+  private readonly messageService = inject(MessageService);
 
   public wasItSent = signal(false);
 
@@ -96,10 +102,23 @@ export class Confirmation {
           console.log('Confirmation sent successfully:', response);
           this.onReset();
           this.wasItSent.set(false);
+
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Éxito',
+            detail: 'Confirmación enviada con éxito',
+            life: 3000,
+          });
         },
         error: (error) => {
           console.error('Error sending confirmation:', error);
           this.wasItSent.set(false);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Hubo un error al enviar la confirmación. Por favor, inténtalo de nuevo.',
+            life: 3000,
+          });
         },
       });
   }
