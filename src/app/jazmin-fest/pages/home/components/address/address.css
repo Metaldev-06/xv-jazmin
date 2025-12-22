@@ -10,12 +10,10 @@
   .info__container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
     font-family: var(--font-normal);
-
-    h2 {
-      text-align: center;
-    }
+    text-align: center;
 
     .info__address {
       display: flex;

@@ -1,1 +1,74 @@
-<p>confirmation works!</p>
+<section class="confirmation__container">
+  <h2 class="title">Confirmación</h2>
+
+  <h3>¿Venís a la fiesta?</h3>
+
+  <div class="confirmation__form">
+    <form class="form__container" (submit)="onSubmit($event)" novalidate>
+      <div class="form__group">
+        <label for="name">Nombre y Apellido:</label>
+        <input type="text" id="name" placeholder="Ej: Juan Pérez" [field]="confirmationForm.name" />
+
+        @if (isFieldInvalid('name')) {
+        <p class="form__error">
+          <lucide-icon [img]="ShieldXIcon" class="my-icon" [size]="20" />
+          @for (error of confirmationForm.name().errors(); track $index) {
+          <span>{{ error.message }}</span>
+          }
+        </p>
+        }
+      </div>
+
+      <div class="form__group">
+        <label for="dni">DNI:</label>
+        <input type="number" id="dni" placeholder="Ej: 12345678" [field]="confirmationForm.dni" />
+
+        @if (isFieldInvalid('dni')) {
+        <p class="form__error">
+          <lucide-icon [img]="ShieldXIcon" class="my-icon" [size]="20" />
+          @for (error of confirmationForm.dni().errors(); track $index) {
+          <span>{{ error.message }}</span>
+          }
+        </p>
+        }
+      </div>
+
+      <div class="form__group">
+        <label for="message">Mensaje (opcional):</label>
+        <textarea
+          id="message"
+          placeholder="¡Qué emoción!"
+          [field]="confirmationForm.message"
+        ></textarea>
+
+        @if (isFieldInvalid('message')) {
+        <p class="form__error">
+          <lucide-icon [img]="ShieldXIcon" class="my-icon" [size]="20" />
+          @for (error of confirmationForm.message().errors(); track $index) {
+          <span>{{ error.message }}</span>
+          }
+        </p>
+        }
+      </div>
+
+      <div class="form__group--checkbox">
+        <input type="checkbox" id="confirmed" [field]="confirmationForm.confirmed" />
+
+        <label for="confirmed"
+          >Confirmo que asistiré al evento y respetaré el código de vestimenta</label
+        >
+
+        @if (isFieldInvalid('confirmed')) {
+        <p class="form__error">
+          <lucide-icon [img]="ShieldXIcon" class="my-icon" [size]="20" />
+          @for (error of confirmationForm.confirmed().errors(); track $index) {
+          <span>{{ error.message }}</span>
+          }
+        </p>
+        }
+      </div>
+
+      <button type="submit">Enviar Confirmación</button>
+    </form>
+  </div>
+</section>
