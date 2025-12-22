@@ -1,0 +1,40 @@
+<section class="gallery__container">
+  <lucide-icon
+    [img]="InstagramIcon"
+    class="my-icon"
+    [color]="'#dac2fe'"
+    [strokeWidth]="2"
+    [size]="44"
+  />
+  <h2 class="title">Fotos de la Noche</h2>
+
+  <div class="gallery__info">
+    <p>Después del evento, acá vas a poder ver y subir las fotos para revivir cada momeno 💫</p>
+
+    @if (!isTodayOrAfter(date)) {
+      <a [routerLink]="'/invitation/gallery'">
+        <lucide-icon
+          [img]="ArrowUpFromLineIcon"
+          class="my-icon"
+          [color]="'#dac2fe'"
+          [strokeWidth]="2"
+          [size]="15"
+        />
+
+        Subir Fotos (Próximamente)
+      </a>
+    } @else {
+      <a>
+        <lucide-icon
+          [img]="ArrowUpFromLineIcon"
+          class="my-icon"
+          [color]="'#dac2fe'"
+          [strokeWidth]="2"
+          [size]="15"
+        />
+
+        Subir Fotos (Próximamente)
+      </a>
+    }
+  </div>
+</section>

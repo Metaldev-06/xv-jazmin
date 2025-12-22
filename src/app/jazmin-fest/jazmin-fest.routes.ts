@@ -10,6 +10,10 @@ export const jazminFestRoutes: Routes = [
         path: '',
         loadComponent: () => import('./pages/home/home'),
       },
+      {
+        path: 'gallery',
+        loadComponent: () => import('./pages/gallery/gallery'),
+      },
     ],
   },
 ];

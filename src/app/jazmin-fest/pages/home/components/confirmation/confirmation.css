@@ -2,7 +2,7 @@
   width: 95%;
   max-width: var(--max-width);
   margin: 0 auto;
-  min-height: 100dvh;
+  /* min-height: 100dvh; */
   display: flex;
   flex-direction: column;
   align-items: center;

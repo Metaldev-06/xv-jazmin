@@ -1,0 +1,34 @@
+.image__container {
+  width: 96%;
+  max-width: var(--max-width);
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+    /* opacity: 0.9; */
+
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #222222 10%,
+      #222222 90%,
+      transparent 100%
+    );
+
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #222222 10%,
+      #222222 90%,
+      transparent 100%
+    );
+  }
+}

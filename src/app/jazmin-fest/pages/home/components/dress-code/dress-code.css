@@ -1,12 +1,12 @@
 .dress__code {
   width: 100%;
   max-width: var(--max-width);
-  min-height: 50dvh;
+  /* min-height: 50dvh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5rem auto;
+  margin: 12rem auto;
   position: relative;
 
   .dress__code--image {
