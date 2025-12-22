@@ -8,10 +8,23 @@ import { Hero } from './components/hero/hero';
 import { ImagesGrid } from './components/images-grid/images-grid';
 import { Invitation } from './components/invitation/invitation';
 import { StarEffect } from '../../../shared/components/star-effect/star-effect';
+import { DressCode } from './components/dress-code/dress-code';
+import { Confirmation } from './components/confirmation/confirmation';
 
 @Component({
   selector: 'app-home',
-  imports: [StarEffect, Hero, Countdown, Address, GiftComponent, Invitation, ImagesGrid, Farewell],
+  imports: [
+    StarEffect,
+    Hero,
+    Countdown,
+    Address,
+    GiftComponent,
+    Invitation,
+    ImagesGrid,
+    Farewell,
+    DressCode,
+    Confirmation,
+  ],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

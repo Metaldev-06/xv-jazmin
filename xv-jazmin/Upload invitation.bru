@@ -1,0 +1,23 @@
+meta {
+  name: Upload invitation
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://prueba.metaldev.cloud/webhook-test/120588d2-2fe2-4a1c-ad2c-4e614a724ca0
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Fernando Diaz",
+    "confirmation": true,
+    "message": "Hola"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
