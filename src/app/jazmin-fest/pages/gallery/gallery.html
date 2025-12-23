@@ -1,1 +1,24 @@
-<p>gallery works!</p>
+<section class="gallery__container">
+  <h1 class="title">Galería</h1>
+
+  <article>
+    <div class="card">
+      <p-toast />
+      <p-fileupload
+        [multiple]="true"
+        accept="image/*"
+        maxFileSize="5000000"
+        mode="advanced"
+        [customUpload]="true"
+        chooseLabel="Seleccionar"
+        uploadLabel="Subir"
+        cancelLabel="Cancelar"
+        (uploadHandler)="onUpload($event)"
+      >
+        <ng-template #empty>
+          <div>Arrastre y suelte archivos aquí para cargarlos.</div>
+        </ng-template>
+      </p-fileupload>
+    </div>
+  </article>
+</section>

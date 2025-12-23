@@ -8,7 +8,7 @@ import { Farewell } from './components/farewell/farewell';
 import { GiftComponent } from './components/gift/gift';
 import { Hero } from './components/hero/hero';
 import { ImageComponent } from './components/image-component/image-component';
-import { ImagesGrid } from './components/images-grid/images-grid';
+// import { ImagesGrid } from './components/images-grid/images-grid';
 import { Invitation } from './components/invitation/invitation';
 import { Gallery } from './components/gallery/gallery';
 
@@ -20,7 +20,7 @@ import { Gallery } from './components/gallery/gallery';
     Address,
     GiftComponent,
     Invitation,
-    ImagesGrid,
+    // ImagesGrid,
     Farewell,
     DressCode,
     Confirmation,
@@ -31,7 +31,7 @@ import { Gallery } from './components/gallery/gallery';
   styleUrl: './home.css',
 })
 export default class Home {
-  public image1 = '/assets/images/imagen-1.jpeg';
+  public image1 = `/assets/images/imagen-1.jpeg`;
   public image2 = '/assets/images/imagen-2.jpeg';
   public image3 = '/assets/images/imagen-3.jpeg';
   public image6 = '/assets/images/imagen-6.jpeg';

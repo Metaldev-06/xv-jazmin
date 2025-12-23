@@ -1,0 +1,12 @@
+.gallery__container {
+  width: 95%;
+  max-width: var(--max-width);
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  h1 {
+    text-align: center;
+  }
+}
