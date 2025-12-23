@@ -11,7 +11,7 @@
   <div class="gallery__info">
     <p>Después del evento, acá vas a poder ver y subir las fotos para revivir cada momeno 💫</p>
 
-    @if (!isTodayOrAfter(date)) {
+    @if (isTodayOrAfter(date)) {
       <a [routerLink]="'/invitation/gallery'">
         <lucide-icon
           [img]="ArrowUpFromLineIcon"
