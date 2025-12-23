@@ -8,6 +8,7 @@
   align-items: center;
   margin: 12rem auto;
   position: relative;
+  gap: 1rem;
 
   .dress__code--image {
     width: 100%;
@@ -38,14 +39,18 @@
   p,
   h2 {
     z-index: 2;
-    text-shadow: 0 0 10px #000;
+    text-shadow: 0 0 20px #000;
   }
 
   p {
-    /* font-weight: bold; */
+    font-family: 'CinzelDecorative', serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 4vw, 2rem);
   }
 
   img {
     width: 90px;
+    z-index: 2;
+    filter: drop-shadow(0 0 10px #000);
   }
 }
