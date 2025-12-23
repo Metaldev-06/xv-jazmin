@@ -1,0 +1,91 @@
+<section class="playlist__container">
+  <lucide-icon [img]="MusicIcon" class="my-icon" [size]="40" [color]="'#dac2fe'" />
+  <h2 class="title">Playlist</h2>
+
+  <article class="playlist__info">
+    <p>
+      La fiesta la haces vos, ayudanos con la música, recomendandonos esa canción que no puede
+      faltar.
+    </p>
+
+    <button (click)="showDialog()">
+      <lucide-icon
+        [img]="ArrowUpFromLineIcon"
+        class="my-icon"
+        [color]="'currentColor'"
+        [strokeWidth]="2"
+        [size]="15"
+      />
+      Subir Canción
+    </button>
+  </article>
+</section>
+
+<p-dialog
+  header="Playlist"
+  [modal]="true"
+  [(visible)]="visible"
+  [style]="{ width: '25rem' }"
+  [draggable]="false"
+>
+  <div class="confirmation__form">
+    <form class="form__container" (submit)="onSubmit($event)" novalidate>
+      <div class="form__group">
+        <label for="artist">Artista:</label>
+        <input type="text" id="artist" placeholder="Ej: Bad Bunny" [field]="playlistForm.artist" />
+
+        @if (isFieldInvalid('artist')) {
+          <p class="form__error">
+            <lucide-icon [img]="ShieldXIcon" class="my-icon" [size]="20" />
+            @for (error of playlistForm.artist().errors(); track $index) {
+              <span>{{ error.message }}</span>
+            }
+          </p>
+        }
+      </div>
+
+      <div class="form__group">
+        <label for="name">Nombre de la canción:</label>
+        <input type="text" id="name" placeholder="Ej: Ojitos Lindos" [field]="playlistForm.name" />
+
+        @if (isFieldInvalid('name')) {
+          <p class="form__error">
+            <lucide-icon [img]="ShieldXIcon" class="my-icon" [size]="20" />
+            @for (error of playlistForm.name().errors(); track $index) {
+              <span>{{ error.message }}</span>
+            }
+          </p>
+        }
+      </div>
+
+      <div class="form__group">
+        <label for="link">Enlace:</label>
+        <input
+          type="text"
+          id="link"
+          placeholder="Link de YouTube, Spotify, etc."
+          [field]="playlistForm.link"
+        />
+
+        @if (isFieldInvalid('link')) {
+          <p class="form__error">
+            <lucide-icon [img]="ShieldXIcon" class="my-icon" [size]="20" />
+            @for (error of playlistForm.link().errors(); track $index) {
+              <span>{{ error.message }}</span>
+            }
+          </p>
+        }
+      </div>
+
+      <button type="submit">
+        @if (wasItSent()) {
+          Enviando
+          <i class="pi pi-spin pi-spinner" style="font-size: 1rem"></i>
+        } @else {
+          Enviar
+        }
+      </button>
+    </form>
+  </div>
+</p-dialog>
+<p-toast />

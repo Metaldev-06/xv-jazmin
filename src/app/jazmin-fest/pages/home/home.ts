@@ -11,6 +11,7 @@ import { ImageComponent } from './components/image-component/image-component';
 // import { ImagesGrid } from './components/images-grid/images-grid';
 import { Invitation } from './components/invitation/invitation';
 import { Gallery } from './components/gallery/gallery';
+import { Playlist } from './components/playlist/playlist';
 
 @Component({
   selector: 'app-home',
@@ -26,6 +27,7 @@ import { Gallery } from './components/gallery/gallery';
     Confirmation,
     ImageComponent,
     Gallery,
+    Playlist,
   ],
   templateUrl: './home.html',
   styleUrl: './home.css',

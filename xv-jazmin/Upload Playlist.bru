@@ -1,0 +1,24 @@
+meta {
+  name: Upload Playlist
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://prueba.metaldev.cloud/webhook-test/02c667a2-457e-47d7-b51f-5a4d52a83e89
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "artist": "Metallica",
+    "name": "Master Of Puppets",
+    "link": "https://www.youtube.com/watch?v=E0ozmU9cJDg&list=RDE0ozmU9cJDg&start_radio=1"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

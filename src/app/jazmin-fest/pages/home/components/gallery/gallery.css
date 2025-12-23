@@ -26,12 +26,20 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      transition: background-color 0.3s;
+      transition:
+        background-color 0.3s,
+        color 0.3s,
+        transform 0.1s;
       cursor: pointer;
       font-size: 0.9rem;
 
       &:hover {
-        background-color: darken(var(--primary-color), 10%);
+        background-color: var(--primary-color);
+        color: black;
+      }
+
+      &:active {
+        transform: scale(0.95);
       }
     }
   }
